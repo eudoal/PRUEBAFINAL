@@ -1,5 +1,5 @@
 
-function comprobarInsertar(){
+function comprobarEquipo(){
 
   var correo = document.getElementById('correo').value;
   var nombre = document.getElementById('nombre').value;

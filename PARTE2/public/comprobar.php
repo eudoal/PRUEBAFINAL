@@ -7,6 +7,21 @@ $evento = new Evento();
 
 //insertamos un nuevo Registro
 $evento->buscarAsistente($_POST["dni"]);
+
+if (empty($_POST["dni"])) {
+
+    print ("No has rellenado nada");
+    return false;
+    }
+$busqueda=$evento->getConector()->query("SELECT dni FROM registro");
+$mensaje="No registrado";
+foreach($busqueda as $fila){
+    if($fila['dni']==$_POST["dni"]){
+        $mensaje="Registrado";
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +40,7 @@ $evento->buscarAsistente($_POST["dni"]);
           </header>
           <div class="w3-container">
             <!--AQUI MOSTRAREMOS NUESTRO MENSAJE DE USUARIO QUE PUEDE PASAR O NO-->
-            <p>MENSAJE A SUSTITUIR</p>
+            <p><?php echo $mensaje ?></p>
             <!-------------------------------------------------------------------->
           </div>
         </div>

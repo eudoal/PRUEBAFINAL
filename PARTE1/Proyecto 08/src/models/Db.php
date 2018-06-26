@@ -35,7 +35,7 @@ class Db
 */
   function __construct()
   {
-    $this->server=config::host;
+    $this->server="localhost";
     $this->user=config::user;
     $this->pass=config::pass;
     $this->db=config::db;
